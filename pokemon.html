@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="css/style.css">
+    
     <link rel="stylesheet" href="css/poke.css">
 
     <!-- Bootstrap CSS -->
@@ -15,19 +15,25 @@
 </head>
 
 <body>
-    <div class="container"></div>
-    <br>
-    
     <div class="container">
-        <div class="poke-container " id="poke-container">
-            
+        <div class="row">
+            <div class="col-md-4 center"></div>
+            <div class="col-md-4 text-center">
+                <button  class="boton" onclick="fetchPokemons(this)" value="3">3 POKEMON</button>
+                <button  class="boton"  onclick="fetchPokemons(this)" value="6">6 POKEMON</button>
+                <button  class="boton"  onclick="fetchPokemons(this)" value="9">9 POKEMON</button>
+
+            </div>
+            <div class="col-md-4"></div>
         </div>
+        <div class="row">
+            <div class="poke-container " id="poke-container">
+            
+            </div>
+        </div>
+        
+       
     </div>
-    
-
-
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

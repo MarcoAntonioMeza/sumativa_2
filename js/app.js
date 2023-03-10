@@ -1,5 +1,5 @@
 const poke_container = document.getElementById('poke-container');
-const pokemon_count = 8;
+
 const colors = {
     fire: '#FDDFDF',
     grass: '#DEFDE0',
@@ -18,8 +18,9 @@ const colors = {
 }
 const main_types = Object.keys(colors);
 
-const fetchPokemons = async () => {
-    for (let i=1; i <= pokemon_count; i++) {
+const fetchPokemons = async (e) => {
+    poke_container.innerHTML ='';
+    for (let i=1; i <= Number(e.value); i++) {
         await getPokemon(i)
     }
 }
@@ -42,23 +43,24 @@ const createPokemonCard = (pokemon) => {
     const color = colors[type];
     
     const pokemonInnerHTML = `
-    <div class="col-md-4">
         <div class="img-container">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png"" alt="${pokemon.name}">
         </div>
         <div class="info">
             <span class="number">#${id}</span>
             <h3 class="name">${name}</h3>
-            <small class="type">Type: <span>${type}</span> </small>
+            <small class="type">Tipo: <span>${type}</span> </small>
         </div>
-        
-                        
-    </div>
+    
     `;
-
+    
     pokemonEl.style.backgroundColor = color;
     pokemonEl.innerHTML = pokemonInnerHTML;
     poke_container.appendChild(pokemonEl);
 }
 
-fetchPokemons();
+const obtenerVal = (e) => {
+    return Number(e.value);
+}
+
+fetchPokemons({value:50});
